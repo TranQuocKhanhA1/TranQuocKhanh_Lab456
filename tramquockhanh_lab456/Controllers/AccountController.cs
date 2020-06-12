@@ -13,6 +13,11 @@ using tramquockhanh_lab456.Models;
 namespace tramquockhanh_lab456.Controllers
 {
     [Authorize]
+
+
+
+
+
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
