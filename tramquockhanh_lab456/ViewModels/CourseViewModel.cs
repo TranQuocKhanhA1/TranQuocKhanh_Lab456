@@ -11,7 +11,7 @@ namespace tramquockhanh_lab456.ViewModels
         public string Place { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-
+        public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public DateTime GetDateTime()
         {

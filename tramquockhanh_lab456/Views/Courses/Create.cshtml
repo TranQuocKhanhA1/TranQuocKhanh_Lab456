@@ -18,7 +18,7 @@
        *@
 
     <div class="form-group">
-        @Html.LabelFor(m=>m.Date)
+        @Html.LabelFor(m =>m.Date)
         @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
     </div>
         
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m=> m.Category)
+        @Html.LabelFor(m => m.Category)
         @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name"), "", new { @class = "from-control" })
     </div>
 
