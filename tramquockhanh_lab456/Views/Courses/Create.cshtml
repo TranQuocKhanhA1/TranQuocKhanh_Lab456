@@ -6,4 +6,19 @@
 }
 
 <h2>Create</h2>
+<from>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Place)
+        @Html.TextBoxFor(m => m.Place, new { @class = "from-control "})
+    </div>
+
+   <div class="form-group">
+       @Html.LabelFor(m => m.DateTime)
+   </div>
+
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+    <div class="form-group"></div>
+</from>
 
