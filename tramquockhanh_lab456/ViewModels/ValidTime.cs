@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
-using System.ComponentModel;
 using System.Web;
 
 namespace tramquockhanh_lab456.ViewModels
@@ -18,6 +17,7 @@ namespace tramquockhanh_lab456.ViewModels
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);
+
             return isValid;
         }
     }
