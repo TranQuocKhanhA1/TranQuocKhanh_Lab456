@@ -7,7 +7,7 @@ using System.Web;
 
 namespace tramquockhanh_lab456.Models
 {
-    public class Attendance
+    public class Attendange
     {
         public Course Course { get; set; }
         [Key]

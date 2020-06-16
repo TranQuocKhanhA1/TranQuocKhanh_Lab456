@@ -18,20 +18,16 @@ namespace tramquockhanh_lab456.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-
-        public List<Category> Categories { get; private set; }
-
-        // GET: Courses
+        // GET: Coursest
+        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel
             {
                 Categories = _dbContext.Categories.ToList()
             };
-        
             return View(viewModel);
         }
-
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -45,17 +41,31 @@ namespace tramquockhanh_lab456.Controllers
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
-                DateTime = (DateTime)viewModel.GetDateTime(),
+                DateTime = viewModel.GetDataTime(),
                 CategoryId = viewModel.Category,
                 Place = viewModel.Place
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
-
             return RedirectToAction("Index", "Home");
-
         }
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = _dbContext.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+            // var viewModel = new CoursesViewModel
+            // {
 
+            //     UpcommingCourses = courses,
+            //      ShowAction=User.Identity.IsAuthenticated
+            //  };
+            return View();
+        }
 
     }
 }
