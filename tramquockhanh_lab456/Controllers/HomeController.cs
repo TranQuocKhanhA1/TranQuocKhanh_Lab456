@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using tramquockhanh_lab456.Models;
 using System.Data.Entity;
+using tramquockhanh_lab456.ViewModels;
+
 namespace tramquockhanh_lab456.Controllers
 {
     public class HomeController : Controller
@@ -22,7 +24,13 @@ namespace tramquockhanh_lab456.Controllers
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
 
-            return View(upcommingCourses);
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
@@ -39,6 +47,15 @@ namespace tramquockhanh_lab456.Controllers
             return View();
         }
 
+    }
+
+    internal class ApplicationDbContext
+    {
+        internal object Courses;
+
+        public ApplicationDbContext()
+        {
+        }
     }
 }
 

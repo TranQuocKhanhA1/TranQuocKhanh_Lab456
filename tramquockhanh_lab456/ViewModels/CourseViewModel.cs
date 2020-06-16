@@ -9,6 +9,9 @@ namespace tramquockhanh_lab456.ViewModels
 {
     public class CourseViewModel
     {
+        internal object UpcommingCourses;
+        internal bool ShowAction;
+
         [Required]
         public string Place { get; set; }
         [Required]

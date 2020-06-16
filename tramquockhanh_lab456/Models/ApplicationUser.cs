@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace tramquockhanh_lab456.Models
 {
@@ -13,7 +15,13 @@ namespace tramquockhanh_lab456.Models
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-
+        public ICollection<Following> Followrers { get; set; }
+        public ICollection<Following> Followrees { get; set; }
+        public ApplicationUser()
+        {
+            Followrers = new Collection<Following>();
+            Followrees = new Collection<Following>();
+        }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -23,33 +31,7 @@ namespace tramquockhanh_lab456.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class Following
     {
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Attendance> Attendances { get; set; }
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Attendance>()
-                .HasRequired(a => a.Course)
-                .WithMany()
-                .WillCascadeOnDelete(false);
-            base.OnModelCreating(modelBuilder);
-        }
-    }
-
-    public class Attendance
-    {
-        internal object Course;
     }
 }
