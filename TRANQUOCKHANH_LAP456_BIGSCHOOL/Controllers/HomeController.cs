@@ -12,7 +12,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
     {
         private ApplicationDbContext _dbContext;
 
-        public HomeController()
+        public HomeController() 
         { 
             _dbContext = new ApplicationDbContext();
 
