@@ -17,6 +17,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
             _dbContext = new ApplicationDbContext();
 
 
+
         }
         public ActionResult Index()
         {
