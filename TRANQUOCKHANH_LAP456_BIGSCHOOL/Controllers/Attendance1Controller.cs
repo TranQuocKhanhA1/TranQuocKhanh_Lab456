@@ -30,7 +30,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
 
             var userId = User.Identity.GetUserId();
             if (_dbContext.Attendance1s.Any(a => a.AttendeeId == userId && a.CourseId == attendance1Dto.CourseId))
-                return BadRequest("The Attendance already exists");
+                return BadRequest("The Attendance1 already exists!");
 
 
             var attendance1 = new Attendance1
@@ -44,7 +44,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
             _dbContext.SaveChanges();
 
 
-            return OK();
+            return Ok();
         }
     
 

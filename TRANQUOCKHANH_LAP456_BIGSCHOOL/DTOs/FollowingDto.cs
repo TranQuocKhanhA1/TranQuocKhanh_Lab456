@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Http;
 
 namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.DTOs
 {
-    public class AttendanceDto
+    public class FollowingDto
     {
-        public int CourseId { get; set; }
+        public string FolloweeId { get; set; }
     }
-
 }

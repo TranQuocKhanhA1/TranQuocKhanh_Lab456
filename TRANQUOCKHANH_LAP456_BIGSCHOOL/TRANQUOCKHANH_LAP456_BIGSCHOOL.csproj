@@ -184,9 +184,11 @@
     <Compile Include="Controllers\Attendance1Controller.cs" />
     <Compile Include="Controllers\Attendance1Dto.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\FollowingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="DTOs\AttendanceDto.cs" />
+    <Compile Include="DTOs\Attendance1Dto.cs" />
+    <Compile Include="DTOs\FollowingDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
