@@ -11,16 +11,12 @@
                 @course.DateTime - @course.Lecturer.Name
             </li>
 
+
         }
-
     </ul>
-
-
 
 </div>
 
-
-@*
 <ul class="course">
     @foreach (var course in Model)
     {
@@ -38,17 +34,44 @@
                     @course.Lecturer.Name
 
 
-                    @* <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>*@
+                     <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
 
-@*                </span>
+                </span>
                 <span class="category">
                     @course.Category.Name
                 </span>
-                @*<button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>*@
- @*           </div>
+                <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+            </div>
         </li>
     }
 </ul>
+
+
+@section scripts
+
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/attendance1s", { courseId: button.attr("data-course-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("Going");
+
+                    })
+                    .fail(function () {
+                        alert("Something failed!");
+                    });
+            });
+        });
+    </script>
+    
+}
+
+
 
     @*<div class="jumbotron">
             <h1>ASP.NET</h1>
