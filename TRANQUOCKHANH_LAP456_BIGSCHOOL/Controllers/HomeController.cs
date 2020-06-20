@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TRANQUOCKHANH_LAP456_BIGSCHOOL.Models;
+using TRANQUOCKHANH_LAP456_BIGSCHOOL.ViewModels;
 
 namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
 {
@@ -25,8 +26,14 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
 
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
 
-            return View(upcommingCourses);
+
+            return View(viewModel);
         }
 
         public ActionResult About()

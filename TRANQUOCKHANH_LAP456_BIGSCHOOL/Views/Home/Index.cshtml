@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TRANQUOCKHANH_LAP456_BIGSCHOOL.Models.Course>
+﻿@model TRANQUOCKHANH_LAP456_BIGSCHOOL.ViewModels.CoursesViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -32,15 +32,18 @@
             <div class="details">
                 <span class="lecturer">
                     @course.Lecturer.Name
-
-
-                     <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
-
+                    @if (Model.ShowAction)
+                    {
+                        <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+                    }
                 </span>
                 <span class="category">
                     @course.Category.Name
                 </span>
-                <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance1">Going?</button>
+                @if (Model.ShowAction)
+                {
+                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance1">Going?</button>
+                }
             </div>
         </li>
     }
