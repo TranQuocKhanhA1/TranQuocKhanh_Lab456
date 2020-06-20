@@ -50,5 +50,27 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var useId = User.Identity.GetUserId();
+
+            var courses = _dbContext.Attendance1s
+                .Where(a => a.AttendeeId == useId)
+                .Select(a => a.Course)
+                .Include(1 => 1.Lecturer)
+                .Include(1 => 1.Category)
+                .ToList();
+
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = Courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+
+        }
+
     }
 }
