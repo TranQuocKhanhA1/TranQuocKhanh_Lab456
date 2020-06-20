@@ -25,17 +25,17 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Attend([FromBody] int courseId)
+        public IHttpActionResult Attend(Attendance1Dto attendance1Dto)
         {
 
             var userId = User.Identity.GetUserId();
-            if (_dbContext.Attendance1s.Any(a => a.AttendeeId == userId && a.CourseId == courseId))
+            if (_dbContext.Attendance1s.Any(a => a.AttendeeId == userId && a.CourseId == attendance1Dto.CourseId))
                 return BadRequest("The Attendance already exists");
 
 
             var attendance1 = new Attendance1
             {
-                CourseId = courseId,
+                CourseId =  attendance1Dto.CourseId,
                 AttendeeId = userId
                 //AttendeeId = User.Identity.GetUserId()
             };

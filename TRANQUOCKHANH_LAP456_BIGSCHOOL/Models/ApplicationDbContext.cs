@@ -13,6 +13,8 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Models
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Attendance1> Attendance1s { get; set; }
+
+        public DbSet<Following> Followings { get; set; }
        
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -30,6 +32,19 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Models
             modelBuilder.Entity<Attendance1>()
                 .HasRequired(a => a.Coures)
                 .WithMany()
+                .WillCascadeOnDelete(false);
+
+
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(u => u.Followers)
+                .WithRequired(f => f.Followee)
+                .WillCascadeOnDelete(false);
+
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(u => u.Followees)
+                .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
 
 
