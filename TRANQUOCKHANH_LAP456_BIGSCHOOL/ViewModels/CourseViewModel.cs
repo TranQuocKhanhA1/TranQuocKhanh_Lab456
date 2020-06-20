@@ -12,7 +12,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.ViewModels
         [Required]
         public string Place { get; set; }
         [Required]
-        [FutureDate]
+            [FutureDate]
         public string Date { get; set; }
         [Required]
         [ValidTime]
