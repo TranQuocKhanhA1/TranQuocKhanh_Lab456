@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Microsoft.AspNet.Identity;
+using TRANQUOCKHANH_LAP456_BIGSCHOOL.DTOs;
 using TRANQUOCKHANH_LAP456_BIGSCHOOL.Models;
 
 namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers

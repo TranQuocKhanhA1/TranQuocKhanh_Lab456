@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -53,18 +54,18 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
         [Authorize]
         public ActionResult Attending()
         {
-            var useId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();
 
             var courses = _dbContext.Attendance1s
-                .Where(a => a.AttendeeId == useId)
-                .Select(a => a.Course)
-                .Include(1 => 1.Lecturer)
-                .Include(1 => 1.Category)
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Coures)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
                 .ToList();
 
             var viewModel = new CoursesViewModel
             {
-                UpcommingCourses = Courses,
+                UpcommingCourses = courses,
                 ShowAction = User.Identity.IsAuthenticated
             };
 

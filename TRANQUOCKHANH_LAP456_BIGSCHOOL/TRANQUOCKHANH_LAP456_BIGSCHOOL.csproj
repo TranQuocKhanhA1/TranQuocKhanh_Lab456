@@ -182,7 +182,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Attendance1Controller.cs" />
-    <Compile Include="Controllers\Attendance1Dto.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\FollowingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -219,6 +218,10 @@
     <Compile Include="Migrations\202006201528425_AddAttendance1.cs" />
     <Compile Include="Migrations\202006201528425_AddAttendance1.Designer.cs">
       <DependentUpon>202006201528425_AddAttendance1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006210702082_UpdateTableFollow.cs" />
+    <Compile Include="Migrations\202006210702082_UpdateTableFollow.Designer.cs">
+      <DependentUpon>202006210702082_UpdateTableFollow.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -332,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006201528425_AddAttendance1.resx">
       <DependentUpon>202006201528425_AddAttendance1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006210702082_UpdateTableFollow.resx">
+      <DependentUpon>202006210702082_UpdateTableFollow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

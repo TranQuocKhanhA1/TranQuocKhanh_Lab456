@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Dynamic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Models
 {
     public class Following
     {
-        [key]
+        [Key]
         [Column(Order = 1)]
         public string FollowerId { get; set; }
 
-        [key]
+        [Key]
         [Column(Order = 2)]
         public string FolloweeId {get; set; }
 
