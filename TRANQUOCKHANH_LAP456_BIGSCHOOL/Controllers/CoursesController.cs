@@ -56,7 +56,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
         [Authorize]
         public ActionResult Attending()
         {
-            var userId = User.Identity.GetUserId();
+            var  userId = User.Identity.GetUserId();
 
             var courses = _dbContext.Attendance1s
                 .Where(a => a.AttendeeId == userId)
