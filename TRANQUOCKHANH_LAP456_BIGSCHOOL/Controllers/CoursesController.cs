@@ -60,7 +60,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Controllers
 
             var courses = _dbContext.Attendance1s
                 .Where(a => a.AttendeeId == userId)
-                .Select(a => a.Coures)
+                .Select(a => a.Course)
                 .Include(l => l.Lecturer)
                 .Include(l => l.Category)
                 .ToList();

@@ -30,7 +30,7 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Attendance1>()
-                .HasRequired(a => a.Coures)
+                .HasRequired(a => a.Course)
                 .WithMany()
                 .WillCascadeOnDelete(false);
 

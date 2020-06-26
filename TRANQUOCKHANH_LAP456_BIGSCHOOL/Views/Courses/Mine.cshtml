@@ -62,12 +62,12 @@
                             url: "/api/coursee/" + link.attr("data-course-id"),
                             method: "DELETE"
                         })
-                            .done(function () {
+                            .done(function () { 
                                 link.parent("li").fadeOut(function () {
                                     $(this).remove();
                                 });
                             });
-                        .fail(function () {
+                        $.fail(function () {
                                 alert("Something failed!");
                             });
                     });

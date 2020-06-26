@@ -19,6 +19,6 @@ namespace TRANQUOCKHANH_LAP456_BIGSCHOOL.Models
         [Key]
         [Column(Order =2)]
         public string AttendeeId { get; set; }
-        public Course Coures { get; internal set; }
+        public Course Course { get; internal set; }
     }
 }
